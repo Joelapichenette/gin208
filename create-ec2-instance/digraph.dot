@@ -1,0 +1,46 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_instance.MC_instance (expand)" [label = "aws_instance.MC_instance", shape = "box"]
+		"[root] data.aws_ami.ubuntu (expand)" [label = "data.aws_ami.ubuntu", shape = "box"]
+		"[root] data.aws_key_pair.kp (expand)" [label = "data.aws_key_pair.kp", shape = "box"]
+		"[root] data.aws_security_group.allow_ssh (expand)" [label = "data.aws_security_group.allow_ssh", shape = "box"]
+		"[root] data.aws_subnet.subnet (expand)" [label = "data.aws_subnet.subnet", shape = "box"]
+		"[root] output.public_ip" [label = "output.public_ip", shape = "note"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.access_key" [label = "var.access_key", shape = "note"]
+		"[root] var.ami_name" [label = "var.ami_name", shape = "note"]
+		"[root] var.architecture" [label = "var.architecture", shape = "note"]
+		"[root] var.instance_name" [label = "var.instance_name", shape = "note"]
+		"[root] var.key_name" [label = "var.key_name", shape = "note"]
+		"[root] var.owners_name" [label = "var.owners_name", shape = "note"]
+		"[root] var.region" [label = "var.region", shape = "note"]
+		"[root] var.secret_key" [label = "var.secret_key", shape = "note"]
+		"[root] var.sg_name" [label = "var.sg_name", shape = "note"]
+		"[root] var.subnet_name" [label = "var.subnet_name", shape = "note"]
+		"[root] aws_instance.MC_instance (expand)" -> "[root] data.aws_ami.ubuntu (expand)"
+		"[root] aws_instance.MC_instance (expand)" -> "[root] data.aws_key_pair.kp (expand)"
+		"[root] aws_instance.MC_instance (expand)" -> "[root] data.aws_security_group.allow_ssh (expand)"
+		"[root] aws_instance.MC_instance (expand)" -> "[root] data.aws_subnet.subnet (expand)"
+		"[root] aws_instance.MC_instance (expand)" -> "[root] var.instance_name"
+		"[root] data.aws_ami.ubuntu (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_ami.ubuntu (expand)" -> "[root] var.ami_name"
+		"[root] data.aws_ami.ubuntu (expand)" -> "[root] var.architecture"
+		"[root] data.aws_ami.ubuntu (expand)" -> "[root] var.owners_name"
+		"[root] data.aws_key_pair.kp (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_key_pair.kp (expand)" -> "[root] var.key_name"
+		"[root] data.aws_security_group.allow_ssh (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_security_group.allow_ssh (expand)" -> "[root] var.sg_name"
+		"[root] data.aws_subnet.subnet (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_subnet.subnet (expand)" -> "[root] var.subnet_name"
+		"[root] output.public_ip" -> "[root] aws_instance.MC_instance (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.MC_instance (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.access_key"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.region"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.secret_key"
+		"[root] root" -> "[root] output.public_ip"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+

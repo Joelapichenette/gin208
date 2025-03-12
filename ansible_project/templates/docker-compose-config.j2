@@ -1,0 +1,15 @@
+version: '{{ version }}'
+services:
+    mytb:
+        restart: {{ restart }}
+        image: {{ image }}
+        ports:
+{% for port in ports %}
+        - {{ port }}
+{% endfor %}
+        environment:
+            {{ environment_var }}
+        volumes:
+{% for file in files %}
+        - {{ file['name'] }}:{{ file['path'] }}
+{% endfor %}
